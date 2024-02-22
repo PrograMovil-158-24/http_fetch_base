@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_http_fetch/core/requests/album_requests.dart';
 import 'package:flutter_http_fetch/domain/album.dart';
+import 'package:flutter_http_fetch/infraestructure/services/album/album_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: Center(
           child: FutureBuilder<Album>(
-            future: fetchAlbum(), // Add parentheses here
+            future: getAlbums(), // Add parentheses here
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return Text(snapshot.data!.title);
